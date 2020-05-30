@@ -12,11 +12,15 @@ Edite o arquivo .env, especificando o SGBD, banco de dados e usuário/senha
 Via linha de comando:
 
 composer install
+
 php artisan migrate:seed
+
 php artisan key:generate
+
 php artisan passport:install
 
 Iniciar o servidor (Server for development)
+
 php artisan serve
 
 Acessar via http://127.0.0.1:8000
