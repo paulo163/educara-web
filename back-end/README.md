@@ -1,7 +1,7 @@
 # educara-web
 Educara Web - Realidade Aumentada no Ensino Médio - [BACK-END]
 
-Project setup
+# Project setup
 Projeto requer PHP > 7.2, composer e banco de dados Mysql.
 Instalar e seguir os seguintes comandos
 Faça uma copia do arquivo .env
