@@ -1,12 +1,14 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Disciplina extends Model
 {
+    use SoftDeletes;
+
+    protected $table = 'disciplinas';
     protected $fillable = [
-        'nome', 'imagem'
+        'nome', 'sigla'
     ];
 }
