@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('disciplina', 'Api\DisciplinaController');
+Route::apiResource('objeto', 'Api\ObjetoController');
