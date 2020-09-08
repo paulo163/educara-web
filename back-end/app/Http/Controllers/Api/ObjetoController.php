@@ -15,7 +15,7 @@ class ObjetoController extends Controller
      */
     public function index()
     {
-        //
+        return Objeto::all();
     }
 
     /**
@@ -26,7 +26,7 @@ class ObjetoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Objeto::create($request->all());
     }
 
     /**
@@ -37,7 +37,7 @@ class ObjetoController extends Controller
      */
     public function show(Objeto $objeto)
     {
-        //
+        return Objeto::findOrFail($objeto->id);
     }
 
     /**
@@ -49,7 +49,7 @@ class ObjetoController extends Controller
      */
     public function update(Request $request, Objeto $objeto)
     {
-        //
+        $objeto->update($request->all());
     }
 
     /**
@@ -60,6 +60,6 @@ class ObjetoController extends Controller
      */
     public function destroy(Objeto $objeto)
     {
-        //
+        $objeto->delete();
     }
 }
