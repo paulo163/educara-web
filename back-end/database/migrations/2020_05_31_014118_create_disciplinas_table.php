@@ -18,6 +18,7 @@ class CreateDisciplinasTable extends Migration
             $table->string('nome');
             $table->string('sigla');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
