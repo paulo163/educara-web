@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Objeto extends Model
 {
     use SoftDeletes;
-
+    
     protected $table = 'objetos';
     protected $fillable = [
         'nome', 'modelo3d', 'descricao'

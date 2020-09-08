@@ -19,6 +19,7 @@ class CreateObjetosTable extends Migration
             $table->string('modelo3d');
             $table->string('descricao');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
