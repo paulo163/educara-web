@@ -26,7 +26,17 @@ class ObjetoController extends Controller
      */
     public function store(Request $request)
     {
-        Objeto::create($request->all());
+       
+        $objeto = Objeto::create($request->except(['file']));
+
+        if($request->file('file')->isValid()){
+
+            $path = $request->file('file')->store('objeto/'.$objeto->id);
+            $objeto->path=$path;
+            $objeto->save();
+        }
+        
+
     }
 
     /**

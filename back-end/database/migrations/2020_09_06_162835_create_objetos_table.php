@@ -16,8 +16,12 @@ class CreateObjetosTable extends Migration
         Schema::create('objetos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('modelo3d');
             $table->string('descricao');
+            $table->string('filename');
+            $table->string('path')->nullable();
+            $table->integer('size');
+            $table->string('mime');
+            
             $table->timestamps();
             $table->softDeletes();
         });
