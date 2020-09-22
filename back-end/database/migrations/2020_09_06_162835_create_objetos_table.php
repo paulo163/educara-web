@@ -17,10 +17,10 @@ class CreateObjetosTable extends Migration
             $table->id();
             $table->string('nome');
             $table->string('descricao');
-            $table->string('filename');
+            $table->string('filename')->nullable();
             $table->string('path')->nullable();
-            $table->integer('size');
-            $table->string('mime');
+            $table->integer('size')->default(0);
+            $table->string('extension')->nullable();
             
             $table->timestamps();
             $table->softDeletes();
