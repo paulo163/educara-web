@@ -19,4 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('disciplina', 'Api\DisciplinaController');
+
 Route::apiResource('objeto', 'Api\ObjetoController');
+//Route::post('objeto/{objeto}/upload', 'Api\ObjetoController@upload')->name('objeto.upload');
+Route::get('objeto/{objeto}/download', 'Api\ObjetoController@download')->name('objeto.download');
