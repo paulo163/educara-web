@@ -11,7 +11,7 @@ class Objeto extends Model
     
     protected $table = 'objetos';
     protected $fillable = [
-        'nome', 'filename', 'descricao', 'size', 'extension','path'
+        'nome', 'descricao', 'filehash', 'size', 'extension','path'
     ];
 
 }

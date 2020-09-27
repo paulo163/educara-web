@@ -31,7 +31,7 @@ class ObjetoController extends Controller
     {
 
         $objeto = Objeto::create($request->except('file'));
-        $objeto->filename=hash_file('md5', $request->file);
+        $objeto->filehash=hash_file('md5', $request->file);
         $objeto->size = $request->file->getSize();
         $objeto->extension = $request->file->getClientOriginalExtension();
         $objeto->path = $request->file->storeAs('objeto/' . $objeto->id, $objeto->filename.'.'. $objeto->extension);
@@ -44,7 +44,7 @@ class ObjetoController extends Controller
     {
         $objeto->nome=$request->nome;
         $objeto->descricao=$request->descricao;
-        $objeto->filename=hash_file('md5', $request->file);
+        $objeto->filehashe=hash_file('md5', $request->file);
         $objeto->size = $request->file->getSize();
         $objeto->extension = $request->file->getClientOriginalExtension();
         $objeto->path = $request->file->storeAs('objeto/' . $objeto->id, $objeto->filename.'.'. $objeto->extension);
