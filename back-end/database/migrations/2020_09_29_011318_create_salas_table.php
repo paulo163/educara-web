@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateObjetosTable extends Migration
+class CreateSalasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateObjetosTable extends Migration
      */
     public function up()
     {
-        Schema::create('objetos', function (Blueprint $table) {
+        Schema::create('salas', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('descricao');
-            $table->string('filehash')->nullable();
-            $table->string('path')->nullable();
-            $table->integer('size')->default(0);
-            $table->string('extension')->nullable();
+            $table->string('codigo');
+            $table->unsignedBigInteger('usuario_id');
+            $table->unsignedBigInteger('disciplina_id');
+            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('disciplina_id')->references('id')->on('disciplinas');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +33,6 @@ class CreateObjetosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('objetos');
+        Schema::dropIfExists('salas');
     }
 }

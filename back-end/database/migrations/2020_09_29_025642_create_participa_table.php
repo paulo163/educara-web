@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDisciplinasTable extends Migration
+class CreateParticipaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateDisciplinasTable extends Migration
      */
     public function up()
     {
-        Schema::create('disciplinas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome', 60);
-            $table->string('sigla', 10);
+        Schema::create('participa', function (Blueprint $table) {
+            $table->unsignedBigInteger('usuario_id');
+            $table->unsignedBigInteger('sala_id');
+            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('sala_id')->references('id')->on('salas');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +30,6 @@ class CreateDisciplinasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disciplinas');
+        Schema::dropIfExists('participa');
     }
 }

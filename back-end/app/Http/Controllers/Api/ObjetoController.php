@@ -34,9 +34,10 @@ class ObjetoController extends Controller
         $objeto->filehash=hash_file('md5', $request->file);
         $objeto->size = $request->file->getSize();
         $objeto->extension = $request->file->getClientOriginalExtension();
-        $objeto->path = $request->file->storeAs('objeto/' . $objeto->id, $objeto->filename.'.'. $objeto->extension);
+        $objeto->path = $request->file->storeAs('objeto/' . $objeto->id, $objeto->filehash.'.'. $objeto->extension);
         $objeto->save();
-        
+
+        return $objeto;
         
     }
 
@@ -44,11 +45,13 @@ class ObjetoController extends Controller
     {
         $objeto->nome=$request->nome;
         $objeto->descricao=$request->descricao;
-        $objeto->filehashe=hash_file('md5', $request->file);
+        $objeto->filehash=hash_file('md5', $request->file);
         $objeto->size = $request->file->getSize();
         $objeto->extension = $request->file->getClientOriginalExtension();
-        $objeto->path = $request->file->storeAs('objeto/' . $objeto->id, $objeto->filename.'.'. $objeto->extension);
+        $objeto->path = $request->file->storeAs('objeto/' . $objeto->id, $objeto->filehash.'.'. $objeto->extension);
         $objeto->update();
+
+        return $objeto;
     }
 
     /**
@@ -79,9 +82,13 @@ class ObjetoController extends Controller
      */
     public function destroy(Objeto $objeto)
     {
-        if (File::deleteDirectory(storage_path('app/files/objeto/') . $objeto->id))
+        if (File::deleteDirectory(storage_path('app/files/objeto/') . $objeto->id)){
             $objeto->delete();
+            return $objeto;
+        }
         else return "Não apagou!";
+
+        
     }
 
     public function download(Objeto $objeto)

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Disciplina;
+use App\Models\Sala;
 use Illuminate\Http\Request;
 
-class DisciplinaController extends Controller
+class SalaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class DisciplinaController extends Controller
      */
     public function index()
     {
-        return Disciplina::all();
+        //
     }
 
     /**
@@ -26,40 +26,40 @@ class DisciplinaController extends Controller
      */
     public function store(Request $request)
     {
-        return Disciplina::create($request->all());
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Disciplina  $disciplina
+     * @param  \App\Models\Sala  $sala
      * @return \Illuminate\Http\Response
      */
-    public function show(Disciplina $disciplina)
+    public function show(Sala $sala)
     {
-        return Disciplina::findOrFail($disciplina->id);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Disciplina  $disciplina
+     * @param  \App\Models\Sala  $sala
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Disciplina $disciplina)
+    public function update(Request $request, Sala $sala)
     {
-        return $disciplina->update($request->all());
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Disciplina  $disciplina
+     * @param  \App\Models\Sala  $sala
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Disciplina $disciplina)
+    public function destroy(Sala $sala)
     {
-        return $disciplina->delete();
+        //
     }
 }
