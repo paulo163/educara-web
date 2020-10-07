@@ -17,9 +17,9 @@ class CreateSalasTable extends Migration
             $table->id();
             $table->string('nome');
             $table->string('codigo');
-            $table->unsignedBigInteger('usuario_id');
+            $table->unsignedBigInteger('dono');
             $table->unsignedBigInteger('disciplina_id');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('dono')->references('id')->on('users');
             $table->foreign('disciplina_id')->references('id')->on('disciplinas');
             $table->timestamps();
             $table->softDeletes();

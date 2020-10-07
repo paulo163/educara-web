@@ -14,9 +14,9 @@ class CreateParticipaTable extends Migration
     public function up()
     {
         Schema::create('participa', function (Blueprint $table) {
-            $table->unsignedBigInteger('usuario_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('sala_id');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('sala_id')->references('id')->on('salas');
             $table->timestamps();
             $table->softDeletes();
