@@ -14,4 +14,14 @@ class Objeto extends Model
         'nome', 'descricao', 'filehash', 'size', 'extension','path'
     ];
 
+    //Muitos objetos pertencem a uma ou muitas disciplinas (N,N)
+    public function disciplinas(){
+        return $this->BelongsToMany(Disciplina::class);
+    }
+
+    //Muitos objetos pertencem a uma ou muitas salas (N,N)
+    public function salas(){
+        return $this->BelongsToMany(Sala::class);
+    }
+
 }
