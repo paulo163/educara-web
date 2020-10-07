@@ -15,7 +15,7 @@ class SalaController extends Controller
      */
     public function index()
     {
-        //
+        return Sala::find(1)->with('disciplina', 'dono', 'participantes')->get();//funciona não sei como
     }
 
     /**
@@ -26,7 +26,7 @@ class SalaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Sala::create($request->all());
     }
 
     /**
@@ -37,7 +37,8 @@ class SalaController extends Controller
      */
     public function show(Sala $sala)
     {
-        //
+        
+        return Sala::where('id', $sala->id)->with('disciplina', 'dono', 'participantes')->get();
     }
 
     /**
@@ -49,7 +50,7 @@ class SalaController extends Controller
      */
     public function update(Request $request, Sala $sala)
     {
-        //
+        return $sala->update($request->all());
     }
 
     /**
@@ -60,6 +61,6 @@ class SalaController extends Controller
      */
     public function destroy(Sala $sala)
     {
-        //
+        return $sala->delete();
     }
 }
