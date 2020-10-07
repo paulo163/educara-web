@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,11 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+   return $request->user();
 });
 
-Route::apiResource('disciplina', 'Api\DisciplinaController');
 
-Route::apiResource('objeto', 'Api\ObjetoController');
+Route::apiResources([
+    'usuario' => Api\UserController::class,
+    'disciplina' => Api\DisciplinaController::class,
+    'objeto' => Api\ObjetoController::class,
+    'sala' => Api\SalaController::class
+]);
+
 //Route::post('objeto/{objeto}/upload', 'Api\ObjetoController@upload')->name('objeto.upload');
 Route::get('objeto/{objeto}/download', 'Api\ObjetoController@download')->name('objeto.download');
