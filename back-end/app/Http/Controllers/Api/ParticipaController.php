@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Sala;
+use App\Models\Participa;
 use Illuminate\Http\Request;
 
-class SalaController extends Controller
+class ParticipaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class SalaController extends Controller
      */
     public function index()
     {
-        return Sala::find(1)->with('disciplina', 'dono', 'participantes')->get();//funciona não sei como
+        return Participa::all();
     }
 
     /**
@@ -26,40 +26,41 @@ class SalaController extends Controller
      */
     public function store(Request $request)
     {
-        return Sala::create($request->all());
+        $participa = Participa::create($request->all());
+        dd($participa);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sala  $sala
+     * @param  \App\Models\Participa  $participa
      * @return \Illuminate\Http\Response
      */
-    public function show(Sala $sala)
+    public function show(Participa $participa)
     {
-        return Sala::where('id', $sala->id)->with('disciplina', 'dono', 'participantes')->get();
+        return $participa;
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sala  $sala
+     * @param  \App\Models\Participa  $participa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sala $sala)
+    public function update(Request $request, Participa $participa)
     {
-        return $sala->update($request->all());
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Sala  $sala
+     * @param  \App\Models\Participa  $participa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sala $sala)
+    public function destroy(Participa $participa)
     {
-        return $sala->delete();
+        //
     }
 }

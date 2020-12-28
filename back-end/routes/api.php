@@ -21,10 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::apiResources([
-    'usuario' => Api\UserController::class,
-    'disciplina' => Api\DisciplinaController::class,
-    'objeto' => Api\ObjetoController::class,
-    'sala' => Api\SalaController::class
+    'usuarios' => Api\UserController::class,
+    'disciplinas' => Api\DisciplinaController::class,
+    'objetos' => Api\ObjetoController::class,
+    'salas' => Api\SalaController::class,
+    'participa' => Api\ParticipaController::class,
 ]);
 
 //Route::post('objeto/{objeto}/upload', 'Api\ObjetoController@upload')->name('objeto.upload');
