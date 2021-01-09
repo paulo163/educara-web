@@ -13,6 +13,6 @@ class ParticipaTableSeeder extends Seeder
     public function run()
     {
         Participa::truncate();
-        factory(Participa::class, 200)->create();
+        factory(Participa::class, 200)->make();
     }
 }

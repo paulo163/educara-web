@@ -13,6 +13,6 @@ class ObjetoTableSeeder extends Seeder
     public function run()
     {
         Objeto::truncate();
-        factory(Objeto::class, 30)->create();
+        factory(Objeto::class, 30)->make();
     }
 }
